@@ -17,16 +17,16 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # steam cmd and directory conf
-ENV USER dayz
-ENV BASE_DIR /dayz
-ENV HOME ${BASE_DIR}/home
-ENV SERVER_DIR "${BASE_DIR}/home/.steam/steamapps/common/DayZ Server Exp"
-ENV STEAM_CMD_USER anonymous
+ENV USER=dayz
+ENV BASE_DIR=/dayz
+ENV HOME=${BASE_DIR}/home
+ENV SERVER_DIR="${BASE_DIR}/home/.steam/steamapps/common/DayZ_Server_Exp"
+ENV STEAM_CMD_USER=anonymous
 ENV STEAM_CMD_PASSWORD=""
 
 # base dirs
 RUN mkdir -p ${BASE_DIR} && \
-    groupadd dayz && \    
+    groupadd dayz && \
     useradd -m -d ${HOME} -s /bin/bash -g dayz dayz && \
     mkdir -p ${SERVER_DIR}
 

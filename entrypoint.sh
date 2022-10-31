@@ -4,13 +4,14 @@
 function updateGame() {
     steamcmd \
         +force_install_dir ${SERVER_DIR} \
-        +login ${STEAM_CMD_USER} ${STEAM_CMD_PASSWORD} \        
+        +login ${STEAM_CMD_USER} ${STEAM_CMD_PASSWORD} \
         +app_update ${APP_ID} \
         ${EXTRA_UPDATE_ARGS} \
         +quit
 }
 
 function startGame() {
+    echo ${SERVER_DIR}
     cd ${SERVER_DIR}
     ./DayZServer \
         -config="serverDZ.cfg" \
